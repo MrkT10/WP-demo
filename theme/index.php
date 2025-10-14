@@ -15,8 +15,8 @@
 get_header();
 ?>
 
-	<section id="primary">
-		<main id="main">
+	<main id="main">
+		<section id="post-block">
 
 		<?php
 		if ( have_posts() ) {
@@ -46,8 +46,23 @@ get_header();
 		}
 		?>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+		</section><!-- #primary -->
+		<section id="rest-endpoint">
+			<div></div>
+		</section>
+		<section id="api">
+			<div></div>
+		</section>
+		<section id="form-validate">
+			<div></div>
+		</section>
+		<section id="front-end-test">
+			<div></div>
+		</section>
+		<section id="back-end-test">
+			<div></div>
+		</section>
+	</main><!-- #main -->
 
 <?php
 get_footer();
