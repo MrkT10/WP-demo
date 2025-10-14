@@ -10,39 +10,18 @@
 ?>
 
 <footer id="colophon">
-
-	<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
-		<aside role="complementary" aria-label="<?php esc_attr_e( 'Footer', 'wpbasestarter' ); ?>">
-			<?php dynamic_sidebar( 'sidebar-1' ); ?>
-		</aside>
-	<?php endif; ?>
-
-	<?php if ( has_nav_menu( 'menu-2' ) ) : ?>
-		<nav aria-label="<?php esc_attr_e( 'Footer Menu', 'wpbasestarter' ); ?>">
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-2',
-					'menu_class'     => 'footer-menu',
-					'depth'          => 1,
-				)
-			);
-			?>
-		</nav>
-	<?php endif; ?>
-
-	<div>
+	<div class="bg-gray-800 border-t-2 border-red-600 py-4 text-gray-200 text-center">
 		<?php
 		$wpbasestarter_blog_info = get_bloginfo( 'name' );
 		if ( ! empty( $wpbasestarter_blog_info ) ) :
 			?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>,
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo wp_get_theme()->get( 'Name' ); ?></a>,
 			<?php
 		endif;
 
-		/* translators: 1: WordPress link, 2: WordPress. */
+		/* translators: 1: WordPress link */
 		printf(
-			'<a href="%1$s">proudly powered by %2$s</a>.',
+			'<a href="%1$s">made by Mateusz Markowski</a>.',
 			esc_url( __( 'https://wordpress.org/', 'wpbasestarter' ) ),
 			'WordPress'
 		);

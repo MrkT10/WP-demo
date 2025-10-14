@@ -11,11 +11,12 @@
 
 <header id="masthead">
 
-	<div>
+	<div class="bg-gray-800 text-gray-100 px-4">
 		<?php
 		if ( is_front_page() ) :
 			?>
-			<h1><?php bloginfo( 'name' ); ?></h1>
+			<!-- <h1><?php bloginfo( 'name' ); ?></h1> -->
+			 <span>Nazwa motywu: </span><b><?php echo wp_get_theme()->get( 'Name' ); ?></b>
 			<?php
 		else :
 			?>
@@ -29,19 +30,5 @@
 			<p><?php echo $wpbasestarter_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 		<?php endif; ?>
 	</div>
-
-	<nav id="site-navigation" aria-label="<?php esc_attr_e( 'Main Navigation', 'wpbasestarter' ); ?>">
-		<button aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'wpbasestarter' ); ?></button>
-
-		<?php
-		wp_nav_menu(
-			array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-				'items_wrap'     => '<ul id="%1$s" class="%2$s" aria-label="submenu">%3$s</ul>',
-			)
-		);
-		?>
-	</nav><!-- #site-navigation -->
 
 </header><!-- #masthead -->
