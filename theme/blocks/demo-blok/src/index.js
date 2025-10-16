@@ -1,4 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
+import { useState, useEffect } from '@wordpress/element';
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 registerBlockType('wpbasestarter/demo-blok', {
@@ -7,11 +8,18 @@ registerBlockType('wpbasestarter/demo-blok', {
     category: 'text',
 
     attributes: {
-        content: { type: 'string', source: 'html', selector: 'p' },
+        content: { type: 'string' },
     },
 
     edit({ attributes, setAttributes }) {
         const blockProps = useBlockProps();
+        useEffect(() => {
+            fetch(`${window.location.origin}/wp-json/wpbasestarter/v1/demo-block/1`)
+                .then(res => res.json())
+                .then(data => {
+                    setAttributes({ content: data.content });
+                });
+        }, []);
 
         return (
             <RichText
