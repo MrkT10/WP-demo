@@ -4,5 +4,12 @@
   "title": "Blok demo",
   "category": "text",
   "icon": "star-filled",
-  "editorScript": "file:./build/index.js"
+  "editorScript": "file:./build/index.js",
+  "atributes": {
+    "content": {
+      "type": "string",
+      "source": "meta",
+      "meta": "demo_block_content"
+    }
+  }
 }
