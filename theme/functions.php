@@ -228,3 +228,15 @@ function wpbasestarter_register_demo_block() {
     register_block_type( get_template_directory() . '/blocks/demo-blok' );
 }
 add_action( 'init', 'wpbasestarter_register_demo_block' );
+
+/**
+ * Register custom gutenberg block meta
+ */
+function wpbasestarter_register_meta() {
+    register_post_meta('post', 'demo_blok_content', [
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ]);
+}
+add_action('init', 'wpbasestarter_register_meta');
