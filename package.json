@@ -26,12 +26,14 @@
 		"production": "run-p \"production:**\"",
 		"prod": "npm run production",
 		"zip": "node node_scripts/zip.js wpbasestarter",
-		"bundle": "run-s production zip"
+		"bundle": "run-s production zip",
+		"build-block": "wp-scripts build theme/blocks/demo-blok/src/index.js --output-path=theme/blocks/demo-blok/build"
 	},
 	"devDependencies": {
 		"@_tw/typography": "^0.5.19",
 		"@tailwindcss/postcss": "^4.1.13",
 		"@wordpress/prettier-config": "^4.31.0",
+		"@wordpress/scripts": "^30.25.0",
 		"adm-zip": "^0.5.16",
 		"archiver": "^7.0.1",
 		"cross-env": "^10.0.0",
