@@ -240,3 +240,18 @@ function wpbasestarter_register_meta() {
     ]);
 }
 add_action('init', 'wpbasestarter_register_meta');
+
+/**
+ * Set custom endpoint
+ */
+add_action('rest_api_init', function () {
+    register_rest_route('wpbasestarter/v1', '/demo-block/(?P<id>\d+)', [
+        'methods'             => 'GET',
+        'callback'            => function($request) {
+            $post_id = $request['id'];
+            $content = get_post_meta($post_id, 'demo_block_content', true);
+            return rest_ensure_response(['content' => $content]);
+        },
+        'permission_callback' => '__return_true',
+    ]);
+});
