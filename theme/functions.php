@@ -220,3 +220,11 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+/**
+ * Register custom gutenberg block without external plugin
+ */
+function wpbasestarter_register_demo_block() {
+    register_block_type( get_template_directory() . '/blocks/demo-blok' );
+}
+add_action( 'init', 'wpbasestarter_register_demo_block' );
