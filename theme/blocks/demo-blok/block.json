@@ -9,7 +9,8 @@
     "content": {
       "type": "string",
       "source": "meta",
-      "meta": "demo_block_content"
+      "meta": "demo_block_content",
+      "default": ""
     }
   }
 }
