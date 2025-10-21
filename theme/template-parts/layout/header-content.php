@@ -38,3 +38,4 @@
 	</div>
 
 </header><!-- #masthead -->
+	<div class="darkmode-wrapper">

@@ -7,16 +7,14 @@
  * file and is applied both to the front end and in the block editor.
  */
 body {
-	@apply text-foreground font-sans;
-	background-color: #262e39;
-	color: #d0d1d4;
+	@apply bg-background text-foreground font-sans;
 }
 a{
 	color: #0096e9;
 	transition: color .2s ease;
 }
 a:hover{
-	color: #004cb0;
+	color: #2c65b0;
 }
 /* navbar */
 #top-nav{
@@ -38,8 +36,12 @@ a:hover{
 .breadcrumbs a:hover {
   	text-decoration: underline;
 }
-/* typography */
-h1,h2,h3,h4,h5,h6{
+/* darkmode typography */
+.darkmode-wrapper{
+	background-color: #262e39;
+	color: #d0d1d4;
+}
+.darkmode-wrapper h1, .darkmode-wrapper h2{
 	color: #e1e1e1;
 }
 /* homepage */
@@ -54,7 +56,7 @@ article, #comments{
 	flex-direction: row;
 }
 #disclaimer .disclaimer-wrapper{
-	margin-top: 2rem;
+	padding-top: 2rem;
 }
 .section-disclaimer{
 	display: flex;

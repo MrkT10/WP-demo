@@ -8,7 +8,7 @@
  */
 
 ?>
-
+</div>
 <footer id="colophon">
 	<div class="bg-gray-800 border-t-2 border-[#0096e9] py-4 text-gray-200 text-center">
 		<?php
