@@ -1,0 +1,89 @@
+// color set
+$primary-color: #1900ba;
+$link-color: #0096e9;
+$button-bg: #0080c7;
+$button-hover-bg: #004cb0;
+$link-hover-color: #001db0;
+$code-bg-color: #25292e;
+$code-text: #36b7ff;
+$textarea-text: #d1d1d1;
+$textarea-bg: #363636;
+$light-text: #ececec;
+$dark-text: #313131;
+
+// block
+.demo-block{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    border-top: 3px dashed $code-text;
+    border-bottom: 3px dashed $code-text;
+    color: $dark-text;
+    padding: 2rem 1rem;
+    
+    h2, h3{
+        color: $dark-text;
+        margin: 0;
+        font-size: 1rem;
+        font-family: monospace;
+        text-transform: uppercase;
+    }
+    a{
+        color: $link-color;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all .3s ease;
+        border: 0;
+        &:hover {
+            color: $link-hover-color;
+        }
+    }
+    p{
+        margin: 0;
+    }
+    .font-bold{
+        font-weight: 700;
+    }
+    .ol{
+        font-weight: 700;
+        color: $code-text;
+        margin-right: .3rem;
+        letter-spacing: .1rem;
+    }
+    .code{
+        background-color: $code-bg-color;
+        padding: 15px 25px;
+        border-radius: 6px;
+        font-family: monospace;
+        font-size: 0.875rem;
+        overflow-x: auto;
+        line-height: 1.4;
+        color: $code-text;
+        margin: .5rem auto;
+    }
+    .textarea{
+        background-color: $textarea-bg;
+        padding: 15px 25px;
+        border-radius: 6px;
+        font-family: monospace;
+        font-size: 0.875rem;
+        overflow-x: auto;
+        line-height: 1.4;
+        color: $textarea-text;
+        margin: .5rem auto;
+    }
+    .demo-block-download-button{
+        background-color: $button-bg;
+        color: $light-text;
+        padding: 1rem;
+        border-radius: 10px;
+        margin: 1rem 0;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+            color: #f6f6f6;
+            background-color: $button-hover-bg;
+        }
+    }
+}
