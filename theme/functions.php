@@ -342,3 +342,34 @@ function show_weather($atts) {
 }
 
 add_shortcode('pogoda_open_meteo', 'show_weather');
+
+//form validation
+function form_validate() {
+    $name = sanitize_text_field($_POST['name'] ?? '');
+    $city = sanitize_text_field($_POST['city'] ?? '');
+    $email = sanitize_email($_POST['email'] ?? '');
+
+    if (empty($name) || empty($city) || empty($email)) {
+        wp_send_json(['success' => false, 'message' => 'Wymagane jest wypełnienie wszystkich pól']);
+    }
+
+    if (!is_email($email)) {
+        wp_send_json(['success' => false, 'message' => 'Podaj poprawny adres e-mail']);
+    }
+
+    wp_send_json([
+        'success' => true,
+        'message' => "Dziękujemy, {$name} z {$city}! Formularz został uzupełniony poprawnie 🎉"
+    ]);
+}
+
+add_action('wp_ajax_form_check', 'form_validate');
+add_action('wp_ajax_nopriv_form_check', 'form_validate');
+
+// pass url to js
+function enqueue_my_scripts() {
+    wp_localize_script('theme-scripts', 'myAjax', [
+        'ajaxurl' => admin_url('admin-ajax.php')
+    ]);
+}
+add_action('wp_enqueue_scripts', 'enqueue_my_scripts');

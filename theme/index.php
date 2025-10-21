@@ -90,8 +90,8 @@ get_header();
 			</div>
 			<div class="form-validate">
 				<form id="demo-form">
-					<input type="text" id="imie" name="imie" placeholder="Wpisz imię">
-					<input type="text" id="miasto" name="miasto" placeholder="Wpisz miasto">
+					<input type="text" id="name" name="name" placeholder="Wpisz imię">
+					<input type="text" id="city" name="city" placeholder="Wpisz miasto">
 					<input type="email" id="email" name="email" placeholder="Wpisz e-mail">
 					<button type="submit">Wyślij</button>
 				</form>
