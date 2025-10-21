@@ -10,7 +10,7 @@
 ?>
 
 <footer id="colophon">
-	<div class="bg-gray-800 border-t-2 border-red-600 py-4 text-gray-200 text-center">
+	<div class="bg-gray-800 border-t-2 border-[#0096e9] py-4 text-gray-200 text-center">
 		<?php
 		$wpbasestarter_blog_info = get_bloginfo( 'name' );
 		if ( ! empty( $wpbasestarter_blog_info ) ) :
