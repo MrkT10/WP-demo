@@ -38,7 +38,7 @@ if ( ! defined( 'WPBASESTARTER_TYPOGRAPHY_CLASSES' ) ) {
 	 */
 	define(
 		'WPBASESTARTER_TYPOGRAPHY_CLASSES',
-		'prose prose-neutral max-w-none prose-a:text-primary'
+		'prose-neutral max-w-none prose-a:text-primary'
 	);
 }
 
@@ -255,3 +255,60 @@ add_action('rest_api_init', function () {
         'permission_callback' => '__return_true',
     ]);
 });
+/**
+ * Set excerpt max length
+ */
+function custom_excerpt_length( $length ) {
+    return 20;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+/**
+ * Set custom breadcrumbs
+ */
+function custom_breadcrumbs() {
+    $separator = ' &raquo; ';
+
+    echo '<nav class="breadcrumbs">';
+    if ( !is_front_page() ) {
+        echo '<a href="' . home_url() . '">Strona główna</a>';
+        echo $separator;
+    } else {
+        echo '<span>Strona główna</span>';
+        echo '</nav>';
+        return;
+    }
+    if (is_single()) {
+        $category = get_the_category();
+        if ($category) {
+            $main_cat = $category[0];
+            if ($main_cat->parent) {
+                $parent_cat = get_category($main_cat->parent);
+                echo '<a href="' . get_category_link($parent_cat->term_id) . '">' . esc_html($parent_cat->name) . '</a>' . $separator;
+            }
+            echo '<a href="' . get_category_link($main_cat->term_id) . '">' . esc_html($main_cat->name) . '</a>' . $separator;
+        }
+        echo '<span>' . get_the_title() . '</span>';
+
+    } elseif (is_category()) {
+        echo '<span>' . single_cat_title('', false) . '</span>';
+
+    } elseif (is_page()) {
+        global $post;
+        if ($post->post_parent) {
+            $ancestors = array_reverse(get_post_ancestors($post->ID));
+            foreach ($ancestors as $ancestor) {
+                echo '<a href="' . get_permalink($ancestor) . '">' . get_the_title($ancestor) . '</a>' . $separator;
+            }
+        }
+        echo '<span>' . get_the_title() . '</span>';
+
+    } elseif (is_search()) {
+        echo '<span>Wyniki wyszukiwania: "' . get_search_query() . '"</span>';
+
+    } elseif (is_404()) {
+        echo '<span>Błąd 404</span>';
+    }
+
+    echo '</nav>';
+}
