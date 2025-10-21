@@ -10,6 +10,7 @@ $textarea-text: #d1d1d1;
 $textarea-bg: #363636;
 $light-text: #ececec;
 $dark-text: #313131;
+$white: #fff;
 
 // block
 .demo-block{
@@ -18,11 +19,12 @@ $dark-text: #313131;
     gap: 1.2rem;
     border-top: 3px dashed $code-text;
     border-bottom: 3px dashed $code-text;
-    color: $dark-text;
+    color: $light-text;
     padding: 2rem 1rem;
+    margin: 3rem auto;
     
     h2, h3{
-        color: $dark-text;
+        color: $white;
         margin: 0;
         font-size: 1rem;
         font-family: monospace;
