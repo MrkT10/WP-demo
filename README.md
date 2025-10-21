@@ -13,7 +13,7 @@ Demo of several key skills for WordPress - based on information from the meeting
 
 ### Development
 
-4. Run `npm run buid:block` to build gutenberg custom block
+4. Run `npm run buid-block` to build gutenberg custom block
 5. Run `npm run watch` to build styles and track changes
 
 ### Deployment
