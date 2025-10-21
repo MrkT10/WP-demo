@@ -312,3 +312,33 @@ function custom_breadcrumbs() {
 
     echo '</nav>';
 }
+/**
+ * Weather API
+ */
+function show_weather($atts) {
+    // Krakow lat & lon
+    $lat = '50.0647';
+    $lon = '19.9450';
+	
+	// api from open-meteo: https://open-meteo.com
+    $url = "https://api.open-meteo.com/v1/forecast?latitude={$lat}&longitude={$lon}&current_weather=true";
+
+    $response = wp_remote_get($url);
+
+    if (is_wp_error($response)) {
+        return "Nie udało się pobrać danych pogodowych.";
+    }
+
+    $data = json_decode(wp_remote_retrieve_body($response), true);
+
+    if (!isset($data['current_weather'])) {
+        return "Brak dostępnych danych pogodowych.";
+    }
+
+    $temp = $data['current_weather']['temperature'];
+    $wind = $data['current_weather']['windspeed'];
+
+    return "Aktualna pogoda w Krakowie: <span class='weather-data'>{$temp}°C, wiatr: {$wind} km/h</span>";
+}
+
+add_shortcode('pogoda_open_meteo', 'show_weather');
