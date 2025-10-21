@@ -1,7 +1,7 @@
 WPBaseStarter
 =============
 
-Demo of several key skills for WP based on information from the meeting on October 3, 2025.
+Demo of several key skills for WordPress - based on information from the meeting on October 3, 2025.
 
 ## Quickstart
 
@@ -13,10 +13,11 @@ Demo of several key skills for WP based on information from the meeting on Octob
 
 ### Development
 
-4. Run `npm run watch`
-5. Add [Tailwind utility classes](https://tailwindcss.com/docs/utility-first) with abandon
+4. Run `npm run buid:block` to build gutenberg custom block
+5. Run `npm run watch` to build styles and track changes
 
 ### Deployment
 
 6. Run `npm run bundle`
 7. Upload the resulting zip file to your site using the “Upload Theme” button on the “Add Themes” administration page
+8. No external plugins required - all functionalities work within the theme.
