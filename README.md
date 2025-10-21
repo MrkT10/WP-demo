@@ -21,3 +21,6 @@ Demo of several key skills for WordPress - based on information from the meeting
 6. Run `npm run bundle`
 7. Upload the resulting zip file to your site using the “Upload Theme” button on the “Add Themes” administration page
 8. No external plugins required - all functionalities work within the theme.
+
+### Issues
+8. If something is missing clear browser cache
